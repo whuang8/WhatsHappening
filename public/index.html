@@ -12,16 +12,16 @@
     <title>What's Happening</title>
 
     <!-- Angular JS -->
-    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/stylesheet.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -60,8 +60,8 @@
                     <a href="views/view.html" ng-click="currentLocation()" type="button" class="btn btn-default"><i class="fa fa-map-marker"></i>&nbsp &nbsp Use current location</a>
                 </div>
                 <p>{{location.search}}</p>
-                <!--<p>{{location.latitude}}</p>
-                <p>{{location.longitude}}</p> -->
+                <p>{{location.latitude}}</p>
+                <p>{{location.longitude}}</p> 
             </div>
         </div>
     </header>
