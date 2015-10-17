@@ -1,0 +1,9 @@
+{
+  "name": "WhatsHappening",
+  "version": "0.0.1",
+  "description": "What's happening around you?",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "bootstrap": "^3.3.5"
+  }
+}
