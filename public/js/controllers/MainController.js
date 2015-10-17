@@ -7,6 +7,10 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
     longitude : "",
   }
 
+  $scope.photos = {
+
+  }
+
   $scope.search = function(){
     //use search into google api
     var fullurl = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $scope.location.search + '&key=AIzaSyDgUJ0fS8mvxEyKc_U_B3UCBauZxqWuHq0';
@@ -17,13 +21,15 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       //updates location variables
       $scope.location.latitude = response.data.results[0].geometry.location.lat;
       $scope.location.longitude = response.data.results[0].geometry.location.lng;
+      $scope.instagramPhotos();
       // this callback will be called asynchronously
       // when the response is available
     }, function errorCallback(response) {
-      console.log("Failed connecting o the Google geocode api");
+      console.log("Failed connecting to the Google geocode api");
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
+    
   }
 
   //called when 'get current location' button is pressed
@@ -43,6 +49,21 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       console.log("Failed connecting to the Google geocode api");
       // called asynchronously if an error occurs
       // or server returns response with an error status.
+    });
+  }
+
+  $scope.instagramPhotos = function() {
+    var fullurl = 'https://api.instagram.com/v1/media/search?distance=200&lat=' + $scope.location.latitude + '&lng=' + $scope.location.longitude + '&access_token=' + '13731455.02d116e.408adf79d6a04c1496f76dea6771552c';
+    $http({
+      method: 'GET',
+      url: fullurl,
+    }).then(function successCallback(response) {
+      //updates Instagram photos
+      console.log(response);
+
+    }, function errorCallback(response) {
+      console.log("Failed connecting to the Instagram api");
+
     });
   }
 
