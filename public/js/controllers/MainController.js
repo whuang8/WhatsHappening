@@ -1,5 +1,9 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http) {
+  var socket = io();
 
+  socket.on('message', function(data) {
+    console.log(JSON.parse(data));
+  });
 
   $scope.location = {
     search : "",
@@ -24,6 +28,12 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       $scope.instagramPhotos();
       // this callback will be called asynchronously
       // when the response is available
+
+      var data = {
+        lat: $scope.location.latitude,
+        lng: $scope.location.longitude
+      }
+      socket.send(JSON.stringify({data}));
     }, function errorCallback(response) {
       console.log("Failed connecting to the Google geocode api");
       // called asynchronously if an error occurs
@@ -52,6 +62,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
     });
   }
 
+
   $scope.instagramPhotos = function() {
     var fullurl = 'https://api.instagram.com/v1/media/search?distance=200&lat=' + $scope.location.latitude + '&lng=' + $scope.location.longitude + '&access_token=' + '13731455.02d116e.408adf79d6a04c1496f76dea6771552c';
     $http({
@@ -68,3 +79,4 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
   }
 
 }]);
+
