@@ -4,6 +4,7 @@
   "description": "What's happening around you?",
   "dependencies": {
     "angular": "^1.4.7",
-    "bootstrap": "^3.3.5"
+    "bootstrap": "^3.3.5",
+    "font-awesome": "^4.4.0"
   }
 }
