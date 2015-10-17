@@ -1,5 +1,9 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http) {
+  var socket = io();
 
+  socket.on('message', function(data) {
+    console.log(JSON.parse(data));
+  });
 
   $scope.location = {
     search : "",
@@ -19,8 +23,14 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       $scope.location.longitude = response.data.results[0].geometry.location.lng;
       // this callback will be called asynchronously
       // when the response is available
+
+      var data = {
+        lat: $scope.location.latitude,
+        lng: $scope.location.longitude
+      }
+      socket.send(JSON.stringify({data}));
     }, function errorCallback(response) {
-      console.log("Failed connecting o the Google geocode api");
+      console.log("Failed connecting to the Google geocode api");
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
