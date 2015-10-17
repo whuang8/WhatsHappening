@@ -2,9 +2,16 @@
   "name": "WhatsHappening",
   "version": "0.0.1",
   "description": "What's happening around you?",
+  "scripts": {
+    "start": "ws"
+  },
   "dependencies": {
     "angular": "^1.4.7",
     "bootstrap": "^3.3.5",
-    "font-awesome": "^4.4.0"
+    "font-awesome": "^4.4.0",
+    "twitter": "^1.2.5"
+  },
+  "devDependencies": {
+    "local-web-server": "^0.5.23"
   }
 }
