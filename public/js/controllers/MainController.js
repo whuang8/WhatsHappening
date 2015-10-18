@@ -61,6 +61,17 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       console.log(response);
       $scope.location.latitude = response.data.location.lat;
       $scope.location.longitude = response.data.location.lng;
+      $scope.instagramPhotos();
+        // this callback will be called asynchronously
+        // when the response is available
+
+        var data = {
+          lat: $scope.location.latitude,
+          lng: $scope.location.longitude
+        }
+        socket.send(JSON.stringify(data));
+
+        $scope.doneSearching = true;
       // this callback will be called asynchronously
       // when the response is available
     }, function errorCallback(response) {
