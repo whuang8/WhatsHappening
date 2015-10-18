@@ -5,9 +5,35 @@
  */
 
 /* Global Styles */
+header {
+    background-color: #F0F1EE
 
-header h1,h2,h3{
-    color:white;
+}
+header h1{
+    color: #1352A2;
+}
+
+header h2 {
+    color: #FACF62;
+}
+
+header h3 {
+    color: #FB6964;;
+}
+
+.text-center {
+  animation-duration: 1s;
+  animation-name: slide;
+}
+
+@keyframes slide {
+  from {
+    margin-top: 25%;
+  }
+
+  to {
+    margin-top: 0px;
+  }
 }
 
 video {
@@ -22,7 +48,7 @@ video {
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
     transition: 1s opacity;
-    background-color:  #999999;
+    background-color:  #963019;
 }
 
 html,
@@ -32,7 +58,7 @@ body {
 }
 
 body {
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family: 'Sintony', sans-serif;
 }
 
 .text-vertical-center {
