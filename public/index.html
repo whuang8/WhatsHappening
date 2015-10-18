@@ -77,21 +77,28 @@
                 <p>{{location.search}}</p>
                 <p>{{location.latitude}}</p>
                 <p>{{location.longitude}}</p>
-                <div ng-repeat="photo in photos">
-                    <img src={{photo}}>
+            </div>
+        </div>
+     
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-offset-2 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div ng-repeat="photo in photos">
+                        <img src={{photo}}>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
 
-
-    <div class="tweets">
+        <div class="tweets">
       <!-- <div ng-repeat="tweet in tweets" class="jumbotron"> -->
         <!-- <div class="container"> -->
           <p ng-repeat="tweet in tweets">{{tweet}}</p>
         <!-- </div> -->
       <!-- </div> -->
     </div>
+    </header>
 
 
     <!-- Custom Theme JavaScript -->
