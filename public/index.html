@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Happening Live</title>
+    <title>What's Happening</title>
 
     <!-- Angular JS -->
     <script src="../node_modules/angular/angular.min.js"></script>
@@ -29,50 +29,6 @@
     <!-- Custom CSS -->
     <link href="css/stylesheet.css" rel="stylesheet">
 
-    <!-- Materialize CSS -->
-    <!-- <link href="../node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet"> -->
-
-
-    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.1.4/lib/my-cool-element/my-cool-element.html
-">
-
-<dom-module id='name-card'>  
-  <link rel="import" type='css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <template>
-    <p>
-      <template is='dom-if' if="{{!edit}}">
-        <span>{{fullname}}</span>
-      </template>
-      <template is="dom-if" if="{{edit}}">
-        <label>First:</label> <input type="text" value="{{first::input}}"> <label>Last:</label> <input type="text" value="{{last::input}}">
-      </template>
-      <button on-click="toggleEdit"><i class="fa fa-pencil"></i></button>
-    </p>
-  </template>
-</dom-module>  
-<script>  
-  Polymer({
-    is: 'name-card',
-    properties: {
-      first: String,
-      last: String,
-      fullname: {
-        computed: '_computeFullName(first, last)'
-      },
-    },
-    ready: function() {
-      this.edit = false;
-    },
-    toggleEdit: function() {
-      return (this.edit = !this.edit);
-    },
-    _computeFullName: function (first, last) {
-      return first + ' ' + last;
-    }
-  });
-</script> 
-
-
 
     <!-- Custom Fonts -->
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -86,10 +42,6 @@
 </head>
 
 <body ng-app='LocationApp'>
-
-   <!-- <video autoplay  id="bgvid" loop>
-        <source src="img/lake.mp4" type="video/mp4">
-    </video>  -->
 
     <!-- Header -->
     <header id="top" class="header" ng-controller='MainController'>
@@ -117,11 +69,11 @@
             <div class="row" ng-if="!doneSearching">
                 <div class="btn-group" role="group" aria-label="...">
 
-                    <a href="views/view.html" ng-click="currentLocation()" type="button" class="btn btn-default"><i class="fa fa-map-marker"></i>&nbsp &nbsp Use current location</a>
+                    <a ng-click="currentLocation()" type="button" class="btn btn-default"><i class="fa fa-map-marker"></i>&nbsp &nbsp Use current location</a>
                 </div>
-                <p>{{location.search}}</p>
+                <!-- <p>{{location.search}}</p>
                 <p>{{location.latitude}}</p>
-                <p>{{location.longitude}}</p>
+                <p>{{location.longitude}}</p> -->
             </div>
         </div>
 
@@ -129,11 +81,11 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-offset-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8">
                     <div ng-repeat="photo in photos">
                     <div class="card">
                         <div class="card-image">
-                            <img src="{{photo}}">
+                            <img ng-src="{{photo}}">
                             <span class="card-title">Card Title</span>
                         </div>
                         <div class="card-content">
@@ -147,11 +99,11 @@
                          
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <!-- <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <div ng-repeat="tweet in tweets track by $index" class="tweets">
                         <p>{{tweet}}</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
