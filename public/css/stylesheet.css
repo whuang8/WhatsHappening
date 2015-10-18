@@ -113,11 +113,6 @@
       cursor: pointer;
       display: block; }
 
-.card-image {
-  width: 640px;
-  height: 640px;
-}
-
 .photos {
   opacity: 1;
 }

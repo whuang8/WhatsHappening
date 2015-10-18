@@ -60,7 +60,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       url: fullurl,
     }).then(function successCallback(response) {
       //updates the location variables
-      console.log(response);
       $scope.location.latitude = response.data.location.lat;
       $scope.location.longitude = response.data.location.lng;
       $scope.instagramPhotos();
