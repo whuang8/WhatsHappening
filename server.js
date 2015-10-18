@@ -40,7 +40,8 @@ io.on('connection', function(socket) {
     });
 
     client.get('search/tweets', {
-      q: 'a OR b OR c OR d OR e OR f OR g OR h OR i OR j OR k OR l OR m OR n OR o OR p OR q OR r OR s OR t OR u OR v OR w OR x OR y OR z', // This is the search query
+      // I wish there was a better way to do this...
+      q: 'a OR b OR c OR d OR e OR f OR g OR h OR i OR j OR k OR l OR m OR n OR o OR p OR q OR r OR s OR t OR u OR v OR w OR x OR y OR z',
       geocode: coordinates,
       count: 10,
       lang: 'en'

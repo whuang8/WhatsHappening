@@ -1,4 +1,4 @@
-var app = angular.module('LocationApp', ['ngRoute', 'ngAnimate']);
+var app = angular.module('LocationApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
   $routeProvider.when('/', {

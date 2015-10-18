@@ -10,6 +10,21 @@ header h1,h2,h3{
     color:white;
 }
 
+.text-center {
+  animation-duration: 1s;
+  animation-name: slide;
+}
+
+@keyframes slide {
+  from {
+    margin-top: 25%;
+  }
+
+  to {
+    margin-top: 0px;
+  }
+}
+
 video {
     position: fixed;
     top: 50%;
