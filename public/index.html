@@ -29,6 +29,8 @@
     <!-- Custom Fonts -->
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -37,14 +39,14 @@
 
 <body ng-app='LocationApp'>
 
-    <video autoplay  id="bgvid" loop>
-        <!-- <source src="https://upload.wikimedia.org/wikipedia/commons/e/e1/City_street_time_lapse.webm" type="video/webm"> -->
+   <!-- <video autoplay  id="bgvid" loop>
         <source src="img/lake.mp4" type="video/mp4">
-    </video>
+    </video>  -->
 
     <!-- Header -->
     <header id="top" class="header" ng-controller='MainController'>
         <div class="text-vertical-center">
+            <i class="fa fa-compass fa-5x"></i>
             <h1>Happening Live</h1>
             <h3>Find out what is occuring at any location through live social media.</h3>
             <br>
@@ -52,7 +54,7 @@
                 <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><i class="fa fa-globe"></i></span>
-                        <input ng-model="location.search" type="text" class="form-control" placeholder="Enter a city, zip code , or attraction" aria-describedby="basic-addon1">
+                        <input ng-model="location.search" type="text" onkeydown="if (event.keyCode == 13) document.getElementById('btnSearch').click()"/>/////class="form-control" placeholder="Enter a city, zip code , or attraction" aria-describedby="basic-addon1">
                         <span class="input-group-btn">
                         <button ng-click="search()" class="btn btn-default" type="button">Go!</button>
                         </span>
