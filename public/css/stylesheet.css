@@ -130,7 +130,7 @@ header h2 {
 }
 
 header h3 {
-    color: #aaa;
+  color: #FB6964;
 }
 
 .progress-bar {
@@ -138,6 +138,13 @@ header h3 {
   text-align: left;
   color: black;
   font-size: 14px;
+}
+
+header .subtitle {
+    color: #FB6964;
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 1em 0 .2em;
 }
 
 .text-center {
