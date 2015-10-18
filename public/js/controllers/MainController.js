@@ -4,7 +4,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
   socket.on('message', function(data) {
     $scope.tweets.push(JSON.parse(data));
-    console.log($scope.tweets);
+    $scope.$apply();
   });
 
   $scope.location = {
@@ -13,14 +13,15 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
     longitude : "",
   }
 
-  $scope.photos = {
-
-  }
+  $scope.photos = {}
 
   $scope.doneSearching = false;
 
   $scope.search = function(){
     if ($scope.location.search.length > 0) {
+      $scope.tweets = [];
+      $scope.photos = {};
+
       //use search into google api
       var fullurl = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $scope.location.search + '&key=AIzaSyDgUJ0fS8mvxEyKc_U_B3UCBauZxqWuHq0';
       $http({

@@ -79,15 +79,11 @@
                 <p>{{location.longitude}}</p>
             </div>
         </div>
-    </header>
 
-    <div class="tweets">
-      <!-- <div ng-repeat="tweet in tweets" class="jumbotron"> -->
-        <!-- <div class="container"> -->
-          <p ng-repeat="tweet in tweets">{{tweet}}</p>
-        <!-- </div> -->
-      <!-- </div> -->
-    </div>
+        <div ng-repeat="tweet in tweets track by $index" class="tweets">
+          <p>{{tweet}}</p>
+        </div>
+    </header>
 
     <!-- Custom Theme JavaScript -->
     <script>
