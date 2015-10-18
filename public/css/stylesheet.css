@@ -21,6 +21,13 @@ header h3 {
     color: #FB6964;;
 }
 
+.progress-bar {
+  background-color: #ddd;
+  text-align: left;
+  color: black;
+  font-size: 14px;
+}
+
 .text-center {
   animation-duration: 1s;
   animation-name: slide;

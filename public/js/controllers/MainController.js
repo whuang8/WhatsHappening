@@ -16,11 +16,13 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
   $scope.photos = [];
 
   $scope.doneSearching = false;
+  $scope.loading = false;
 
   $scope.search = function(){
     if ($scope.location.search.length > 0) {
       $scope.tweets = [];
       $scope.photos = {};
+      $scope.loading = true;
 
       //use search into google api
       var fullurl = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $scope.location.search + '&key=AIzaSyDgUJ0fS8mvxEyKc_U_B3UCBauZxqWuHq0';
@@ -86,8 +88,12 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       };
       console.log($scope.photos);
 
+      // TODO loaders for if one finished before the other (ex twitter before insta)
+      $scope.doneSearching = true;
+      $scope.loading = false;
     }, function errorCallback(response) {
       console.log("Failed connecting to the Instagram api");
+      $scope.loading = false;
     });
   }
 
