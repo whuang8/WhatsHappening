@@ -30,6 +30,7 @@ io.on('connection', function(socket) {
   socket.on('message',function(message) {
     var data = JSON.parse(message);
     var coordinates = data.lat + ',' + data.lng + ',1km';
+    console.log(data);
 
     var client = new Twitter({
       consumer_key: keys.TWITTER_CONSUMER_KEY,
@@ -39,8 +40,8 @@ io.on('connection', function(socket) {
     });
 
     client.get('search/tweets', {
-      q: 'a', // This is the search query
-      geolocation: coordinates,
+      q: 'a OR b OR c OR d OR e OR f OR g OR h OR i OR j OR k OR l OR m OR n OR o OR p OR q OR r OR s OR t OR u OR v OR w OR x OR y OR z', // This is the search query
+      geocode: coordinates,
       count: 10,
       lang: 'en'
     }, function(error, tweets, response){
@@ -48,9 +49,8 @@ io.on('connection', function(socket) {
       tweets = tweets.statuses;
       for (var key in tweets) {
         console.log(tweets[key].text + '\n');
+        socket.send(JSON.stringify(tweets[key].text));
       }
-
-      socket.send(JSON.stringify(tweets));
     });
   });
 });
