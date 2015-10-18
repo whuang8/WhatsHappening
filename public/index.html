@@ -29,6 +29,48 @@
     <!-- Custom CSS -->
     <link href="css/stylesheet.css" rel="stylesheet">
 
+    <!-- Materialize CSS -->
+    <!-- <link href="../node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet"> -->
+
+
+    <link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.1.4/lib/my-cool-element/my-cool-element.html">
+
+<dom-module id='name-card'>
+  <link rel="import" type='css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <template>
+    <p>
+      <template is='dom-if' if="{{!edit}}">
+        <span>{{fullname}}</span>
+      </template>
+      <template is="dom-if" if="{{edit}}">
+        <label>First:</label> <input type="text" value="{{first::input}}"> <label>Last:</label> <input type="text" value="{{last::input}}">
+      </template>
+      <button on-click="toggleEdit"><i class="fa fa-pencil"></i></button>
+    </p>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'name-card',
+    properties: {
+      first: String,
+      last: String,
+      fullname: {
+        computed: '_computeFullName(first, last)'
+      },
+    },
+    ready: function() {
+      this.edit = false;
+    },
+    toggleEdit: function() {
+      return (this.edit = !this.edit);
+    },
+    _computeFullName: function (first, last) {
+      return first + ' ' + last;
+    }
+  });
+</script>
+
 
     <!-- Custom Fonts -->
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -80,33 +122,30 @@
         </div>
 
 
-
         <div class="container-fluid">
-            <div class="text-center">
-                <!-- <div class="col-lg-offset-2 col-lg-3 col-md-12 col-sm-12 col-xs-12"> -->
+                <div class="text-center">
                     <div ng-repeat="photo in photos">
-                        <img ng-src="{{photo}}">
-                                        <!-- <div class="card blue-grey darken-1">
-                            <div class="card-content white-text">
-                              <span class="card-title">Card Title</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                            <div class="card-action">
-                              <a href="#">This is a link</a>
-                              <a href="#">This is a link</a>
-                            </div>
-                          </div> -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img ng-src="{{photo}}">
+                            <span class="card-title"></span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">This is a link</a>
+                        </div>
+                    </div>
+
                     </div>
                 </div>
-
-                <!-- TODO tweets -->
-                <!-- <div class="col-lg-offset-2 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <!-- <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <div ng-repeat="tweet in tweets track by $index" class="tweets">
                         <p>{{tweet}}</p>
                     </div>
                 </div> -->
-            </div>
         </div>
 
 
