@@ -30,6 +30,26 @@
     <link href="css/stylesheet.css" rel="stylesheet">
 
 
+    <!-- Typed JS -->
+    <script src="js/typed.min.js"></script>
+    <script>
+        $(function(){
+            $(".element").typed({
+                strings: ["Lambert Fieldhouse", "The Pyramids at Gyza", "The World Trade Center", "The Bean in Chicago", "The Eiffel Tower", "Your home address!", "The Golden Gate Bridge", "The Colosseum", "The Taj Mahal"],
+                typeSpeed: 0,
+                // time before typing starts
+                startDelay: 1000,
+                // backspacing speed
+                backSpeed: 0,
+                // time before backspacing
+                backDelay: 1000,
+                loop: true
+            });
+        });
+    </script>
+
+
+
     <!-- Custom Fonts -->
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -49,7 +69,34 @@
             <div ng-if="!doneSearching">
               <i class="fa fa-compass fa-5x"></i>
               <h1>What's Happening</h1>
-              <h3>Find out what is occuring at any location through live social media.</h3>
+              <!-- <div class="container-fluid">
+                <div class="row">
+                   <div class="col-lg-offset-5 col-lg-1">See what is happening in </div> 
+                   <div class="col-lg-1"></span><span class="element"></span></div> 
+                </div>
+            </div> -->
+              <h3>
+                <!-- <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-offset-4 col-lg-2 text-right">
+                            Take a visit to
+                        </div>
+                        <div class="col-lg-2 text-left">
+                            <span class="element"></span>
+                        </div>
+                    </div>
+                </div> -->
+
+
+
+
+                See what is happening in <span class="element"></span>
+
+
+
+
+
+              </h3>
               <br>
             </div>
             <div class="row">
@@ -57,7 +104,7 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><i class="fa fa-globe"></i></span>
                         <form ng-submit="search()">
-                          <input ng-model="location.search" type="text" class="form-control" placeholder="Enter a city, zip code , or attraction" aria-describedby="basic-addon1">
+                          <input ng-model="location.search" type="text" class="form-control" placeholder="Enter a city, zip code, or attraction" aria-describedby="basic-addon1">
                         </form>
                         <span class="input-group-btn">
                         <button ng-click="search()" class="btn btn-default no-shadow" type="button">Go!</button>
