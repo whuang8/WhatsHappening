@@ -63,8 +63,17 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       console.log(response);
       $scope.location.latitude = response.data.location.lat;
       $scope.location.longitude = response.data.location.lng;
-
       $scope.instagramPhotos();
+        // this callback will be called asynchronously
+        // when the response is available
+
+        var data = {
+          lat: $scope.location.latitude,
+          lng: $scope.location.longitude
+        }
+        socket.send(JSON.stringify(data));
+
+        $scope.doneSearching = true;
       // this callback will be called asynchronously
       // when the response is available
 
@@ -93,10 +102,11 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       console.log(response);
       var length = response.data.data.length;
       for (var i = 0; i < length; i++) {
-        $scope.photos.push(response.data.data[i].images.standard_resolution.url);
-        console.log($scope.photos[i]);
+        $scope.photos.push({
+          image: response.data.data[i].images.standard_resolution.url,
+          caption: response.data.data[i].caption.text
+        });
       };
-      console.log($scope.photos);
 
       // TODO loaders for if one finished before the other (ex twitter before insta)
       $scope.doneSearching = true;
