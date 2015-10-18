@@ -1,8 +1,10 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http) {
   var socket = io();
+  $scope.tweets = [];
 
   socket.on('message', function(data) {
-    console.log(JSON.parse(data));
+    $scope.tweets.push(JSON.parse(data));
+    console.log($scope.tweets);
   });
 
   $scope.location = {

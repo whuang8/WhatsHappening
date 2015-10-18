@@ -25,8 +25,6 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 // Communicate with the client
 io.on('connection', function(socket) {
-  socket.send(JSON.stringify({data: 'Welcome to the server!'}));
-
   socket.on('message',function(message) {
     var data = JSON.parse(message);
     var coordinates = data.lat + ',' + data.lng + ',1km';
@@ -46,10 +44,8 @@ io.on('connection', function(socket) {
       count: 10,
       lang: 'en'
     }, function(error, tweets, response){
-      // console.log(tweets);
       tweets = tweets.statuses;
       for (var key in tweets) {
-        console.log(tweets[key].text + '\n');
         socket.send(JSON.stringify(tweets[key].text));
       }
     });
