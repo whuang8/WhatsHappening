@@ -99,7 +99,9 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       url: fullurl,
     }).then(function successCallback(response) {
       //updates Instagram photos
-      console.log(response);
+      $scope.doneSearching = true;
+      $scope.loading = false;
+      
       var length = response.data.data.length;
       for (var i = 0; i < length; i++) {
         var c = response.data.data[i].caption;
@@ -116,10 +118,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
           });
         }
       };
-
-      // TODO loaders for if one finished before the other (ex twitter before insta)
-      $scope.doneSearching = true;
-      $scope.loading = false;
     }, function errorCallback(response) {
       console.log("Failed connecting to the Instagram api");
       $scope.loading = false;
