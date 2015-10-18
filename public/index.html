@@ -77,6 +77,9 @@
                 <p>{{location.search}}</p>
                 <p>{{location.latitude}}</p>
                 <p>{{location.longitude}}</p>
+                <div ng-repeat="photo in photos">
+                    <img src={{photo}}>
+                </div>
             </div>
         </div>
 
@@ -84,6 +87,7 @@
           <p>{{tweet}}</p>
         </div>
     </header>
+
 
     <!-- Custom Theme JavaScript -->
     <script>
