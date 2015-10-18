@@ -114,7 +114,19 @@
       display: block; }
 
 
+.photos {
+  opacity: 1;
+}
 
+.photos.ng-enter {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+}
+
+.photos.ng-enter-active {
+  opacity: 1;
+}
 
 /* Global Styles */
 header {
@@ -130,7 +142,7 @@ header h2 {
 }
 
 header h3 {
-  color: #888;
+    color: #FB6964;
 }
 
 .progress-bar {

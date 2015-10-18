@@ -25,7 +25,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       $scope.loading = true;
 
       //use search into google api
-      var fullurl = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $scope.location.search + '&key=AIzaSyDgUJ0fS8mvxEyKc_U_B3UCBauZxqWuHq0';
+      var fullurl = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + $scope.location.search + '&key=AIzaSyDgUJ0fS8mvxEyKc_U_B3UCBauZxqWuHq0';
       $http({
         method: 'GET',
         url: fullurl,
@@ -101,7 +101,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       //updates Instagram photos
       $scope.doneSearching = true;
       $scope.loading = false;
-      
+
       var length = response.data.data.length;
       for (var i = 0; i < length; i++) {
         var c = response.data.data[i].caption;
