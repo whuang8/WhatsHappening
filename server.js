@@ -27,7 +27,7 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 io.on('connection', function(socket) {
   socket.on('message',function(message) {
     var data = JSON.parse(message);
-    var coordinates = data.lat + ',' + data.lng + ',1km';
+    var coordinates = data.lat + ',' + data.lng + ',1mi';
     console.log(data);
 
     var client = new Twitter({

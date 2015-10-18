@@ -29,6 +29,11 @@
     <!-- Custom CSS -->
     <link href="css/stylesheet.css" rel="stylesheet">
 
+    <!-- Materialize CSS -->
+    <!-- <link href="../node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet"> -->
+
+
+
     <!-- Custom Fonts -->
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -79,25 +84,36 @@
                 <p>{{location.longitude}}</p>
             </div>
         </div>
+
      
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-offset-2 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-offset-2 col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <div ng-repeat="photo in photos">
                         <img src={{photo}}>
+                                        <!-- <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                              <span class="card-title">Card Title</span>
+                              <p>I am a very simple card. I am good at containing small bits of information.
+                              I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                              <a href="#">This is a link</a>
+                              <a href="#">This is a link</a>
+                            </div>
+                          </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-offset-2 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div ng-repeat="tweet in tweets track by $index" class="tweets">
+                        <p>{{tweet}}</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="tweets">
-      <!-- <div ng-repeat="tweet in tweets" class="jumbotron"> -->
-        <!-- <div class="container"> -->
-          <p ng-repeat="tweet in tweets">{{tweet}}</p>
-        <!-- </div> -->
-      <!-- </div> -->
-    </div>
+
     </header>
 
 
