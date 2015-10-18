@@ -28,7 +28,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
         lat: $scope.location.latitude,
         lng: $scope.location.longitude
       }
-      socket.send(JSON.stringify({data}));
+      socket.send(JSON.stringify(data));
     }, function errorCallback(response) {
       console.log("Failed connecting to the Google geocode api");
       // called asynchronously if an error occurs
@@ -37,7 +37,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
   }
 
   //called when 'get current location' button is pressed
-  $scope.currentLocation = function(){
+  $scope.currentLocation = function() {
     var fullurl = 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAaSTJi-tg0r1-ukV5rMdUOaMGqQxL3nJQ';
     $http({
       method: 'POST',
