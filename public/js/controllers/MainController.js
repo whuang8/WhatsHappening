@@ -102,10 +102,19 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       console.log(response);
       var length = response.data.data.length;
       for (var i = 0; i < length; i++) {
-        $scope.photos.push({
-          image: response.data.data[i].images.standard_resolution.url,
-          caption: response.data.data[i].caption.text
-        });
+        var c = response.data.data[i].caption;
+        if (c == null) {
+          $scope.photos.push({
+            image: response.data.data[i].images.standard_resolution.url,
+            caption: ''
+          });
+        }
+        else {
+          $scope.photos.push({
+            image: response.data.data[i].images.standard_resolution.url,
+            caption: c.text
+          });
+        }
       };
 
       // TODO loaders for if one finished before the other (ex twitter before insta)
