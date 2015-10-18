@@ -29,6 +29,7 @@
     <!-- Custom CSS -->
     <link href="css/stylesheet.css" rel="stylesheet">
 
+
     <!-- Custom Fonts -->
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -71,20 +72,44 @@
             <br>
             <div class="row" ng-if="!doneSearching">
                 <div class="btn-group" role="group" aria-label="...">
-                  <a href="views/view.html" ng-click="currentLocation()" type="button" class="btn btn-default"><i class="fa fa-map-marker"></i>&nbsp &nbsp Use current location</a>
+                  <a ng-click="currentLocation()" type="button" class="btn btn-default"><i class="fa fa-map-marker"></i>&nbsp &nbsp Use current location</a>
                 </div>
-                <p>{{location.search}}</p>
                 <p>{{location.latitude}}</p>
                 <p>{{location.longitude}}</p>
-                <div ng-repeat="photo in photos">
-                    <img ng-src="{{photo}}"></img>
-                </div>
             </div>
         </div>
 
-        <div ng-repeat="tweet in tweets track by $index" class="tweets">
-          <p>{{tweet}}</p>
+
+
+        <div class="container-fluid">
+            <div class="text-center">
+                <!-- <div class="col-lg-offset-2 col-lg-3 col-md-12 col-sm-12 col-xs-12"> -->
+                    <div ng-repeat="photo in photos">
+                        <img ng-src="{{photo}}">
+                                        <!-- <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                              <span class="card-title">Card Title</span>
+                              <p>I am a very simple card. I am good at containing small bits of information.
+                              I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                              <a href="#">This is a link</a>
+                              <a href="#">This is a link</a>
+                            </div>
+                          </div> -->
+                    </div>
+                </div>
+
+                <!-- TODO tweets -->
+                <!-- <div class="col-lg-offset-2 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div ng-repeat="tweet in tweets track by $index" class="tweets">
+                        <p>{{tweet}}</p>
+                    </div>
+                </div> -->
+            </div>
         </div>
+
+
     </header>
 
 

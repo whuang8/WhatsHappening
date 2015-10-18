@@ -18,7 +18,7 @@ header h2 {
 }
 
 header h3 {
-    color: #FB6964;;
+    color: #aaa;
 }
 
 .progress-bar {
@@ -31,6 +31,7 @@ header h3 {
 .text-center {
   animation-duration: 1s;
   animation-name: slide;
+  padding-top: 10px;
 }
 
 @keyframes slide {
