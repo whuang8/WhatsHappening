@@ -11,7 +11,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
     search : "",
     latitude : "",
     longitude : "",
-  }
+  };
 
   $scope.photos = [];
 
@@ -40,7 +40,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
         var data = {
           lat: $scope.location.latitude,
           lng: $scope.location.longitude
-        }
+        };
         socket.send(JSON.stringify(data));
 
         $scope.doneSearching = true;
@@ -50,7 +50,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
         // or server returns response with an error status.
       });
     }
-  }
+  };
 
   //called when 'get current location' button is pressed
   $scope.currentLocation = function() {
@@ -69,18 +69,12 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
         var data = {
           lat: $scope.location.latitude,
           lng: $scope.location.longitude
-        }
+        };
         socket.send(JSON.stringify(data));
 
         $scope.doneSearching = true;
       // this callback will be called asynchronously
       // when the response is available
-
-      var data = {
-        lat: $scope.location.latitude,
-        lng: $scope.location.longitude
-      }
-      socket.send(JSON.stringify(data));
 
       $scope.doneSearching = true;
     }, function errorCallback(response) {
@@ -88,39 +82,37 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
-  }
+  };
 
 
   $scope.instagramPhotos = function() {
-    var fullurl = 'https://api.instagram.com/v1/media/search?distance=100&lat=' + $scope.location.latitude + '&lng=' + $scope.location.longitude + '&access_token=' + '13731455.02d116e.408adf79d6a04c1496f76dea6771552c';
-    $http({
-      method: 'GET',
-      url: fullurl,
-    }).then(function successCallback(response) {
+    var fullurl = 'https://api.instagram.com/v1/media/search?distance=100&lat=' + $scope.location.latitude + '&lng=' + $scope.location.longitude + '&access_token=' + '13731455.02d116e.408adf79d6a04c1496f76dea6771552c&callback=JSON_CALLBACK';
+    $http.jsonp(fullurl)
+    .success(function(response) {
       //updates Instagram photos
       $scope.doneSearching = true;
       $scope.loading = false;
 
-      var length = response.data.data.length;
+      var length = response.data.length;
       for (var i = 0; i < length; i++) {
-        var c = response.data.data[i].caption;
-        if (c == null) {
+        var c = response.data[i].caption;
+        if (c === null) {
           $scope.photos.push({
-            image: response.data.data[i].images.standard_resolution.url,
+            image: response.data[i].images.standard_resolution.url,
             caption: ''
           });
         }
         else {
           $scope.photos.push({
-            image: response.data.data[i].images.standard_resolution.url,
+            image: response.data[i].images.standard_resolution.url,
             caption: c.text
           });
         }
-      };
-    }, function errorCallback(response) {
+      }
+    })
+    .error(function(response) {
       console.log("Failed connecting to the Instagram api");
       $scope.loading = false;
     });
-  }
-
+  };
 }]);
