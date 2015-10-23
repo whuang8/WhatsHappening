@@ -130,7 +130,6 @@
 /* Global Styles */
 header {
     background-color: #F0F1EE
-
 }
 header h1{
     color: #1352A2;
@@ -191,12 +190,13 @@ video {
 
 html,
 body {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-font-family: 'Sintony', sans-serif;
+  font-family: 'Sintony', sans-serif;
+  overflow-x: hidden;
 }
 
 .text-vertical-center {
