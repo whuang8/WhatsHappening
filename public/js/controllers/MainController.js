@@ -9,12 +9,14 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
   $scope.doneSearching = false;
   $scope.loading = false;
+  $scope.noPhotosFound = false;
 
   $scope.search = function(){
     if ($scope.location.search.length > 0) {
       $scope.tweets = [];
       $scope.photos = [];
       $scope.loading = true;
+      $scope.noPhotosFound = false;
 
       //use search into google api
       var fullurl = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + $scope.location.search + '&key=AIzaSyDgUJ0fS8mvxEyKc_U_B3UCBauZxqWuHq0';
@@ -40,6 +42,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
   //called when 'get current location' button is pressed
   $scope.currentLocation = function() {
+    $scope.noPhotosFound = false;
+    
     var fullurl = 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAaSTJi-tg0r1-ukV5rMdUOaMGqQxL3nJQ';
     $http({
       method: 'POST',
@@ -89,6 +93,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
           });
         }
       }
+
+      $scope.noPhotosFound = $scope.photos.length === 0;
     })
     .error(function(response) {
       console.log("Failed connecting to the Instagram api");
